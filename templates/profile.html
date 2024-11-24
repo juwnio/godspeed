@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-avatar">
+            <img src="{{ url_for('static', filename='uploads/' + user.avatar) if user.avatar else url_for('static', filename='images/default-avatar.png') }}" 
+                 alt="Profile picture">
+        </div>
+        <div class="profile-info">
+            <h1>{{ user.username }}</h1>
+            <p class="join-date">Joined {{ user.joined_date.strftime('%B %d, %Y') }}</p>
+            {% if user.bio %}
+                <p class="bio">{{ user.bio }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="profile-posts">
+        <h2>Posts</h2>
+        {% for post in user.posts %}
+            <div class="post-card">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+                <span class="post-date">{{ post.date_posted.strftime('%B %d, %Y') }}</span>
+            </div>
+        {% else %}
+            <p>No posts yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 

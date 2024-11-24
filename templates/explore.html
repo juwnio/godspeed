@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="explore-container">
+    <h1>Explore</h1>
+    <div class="trending-section">
+        <h2>Trending Posts</h2>
+        <div class="posts-grid">
+            {% for post in posts %}
+                {% include 'components/post_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

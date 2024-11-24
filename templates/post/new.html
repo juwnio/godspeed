@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="create-post-container">
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        <div class="form-header">
+            <h2>Create New Post</h2>
+            <select name="visibility" class="visibility-select">
+                <option value="public">🌎 Public</option>
+                <option value="friends">👥 Friends Only</option>
+                <option value="private">🔒 Private</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="title" placeholder="Title" required class="title-input">
+        </div>
+
+        <div class="form-group">
+            <textarea name="content" placeholder="What's on your mind?" class="content-input"></textarea>
+        </div>
+
+        <div class="code-section">
+            <div class="code-header">
+                <select name="language" class="language-select">
+                    <option value="">Select Language</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                </select>
+                <button type="button" class="format-btn">Format Code</button>
+            </div>
+            <textarea name="code_snippet" placeholder="Paste your code here" class="code-input"></textarea>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-btn">Post</button>
+        </div>
+    </form>
+</div>
+{% endblock %} 

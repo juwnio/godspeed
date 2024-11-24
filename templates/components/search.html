@@ -1,0 +1,36 @@
+<div class="search-container">
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search posts...">
+        <div class="search-filters">
+            <select id="filter-type">
+                <option value="all">All</option>
+                <option value="posts">Posts</option>
+                <option value="users">Users</option>
+                <option value="tags">Tags</option>
+            </select>
+            <button class="btn btn-outline" id="advanced-filters-btn">Filters</button>
+        </div>
+    </div>
+    
+    <div class="advanced-filters hidden" id="advanced-filters">
+        <div class="filter-group">
+            <label>Date Range</label>
+            <select id="date-filter">
+                <option value="all">All Time</option>
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+                <option value="year">This Year</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label>Sort By</label>
+            <select id="sort-filter">
+                <option value="recent">Most Recent</option>
+                <option value="popular">Most Popular</option>
+                <option value="likes">Most Liked</option>
+            </select>
+        </div>
+    </div>
+</div> 
