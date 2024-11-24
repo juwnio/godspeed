@@ -8,9 +8,12 @@ from datetime import datetime, timezone
 import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.fenced_code import FencedCodeExtension
+from dotenv import load_dotenv
 
 from config import Config
 from models import db, User, Post, Comment, Tag
+
+load_dotenv()  # Load environment variables from .env file
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -338,4 +341,8 @@ def create_app(config_class=Config):
 if __name__ == '__main__':
     app, init_db = create_app()
     init_db()
-    app.run(debug=True)
+    app.run(
+        host=os.getenv('FLASK_HOST', '0.0.0.0'),
+        port=int(os.getenv('FLASK_PORT', 5000)),
+        debug=os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
+    )
